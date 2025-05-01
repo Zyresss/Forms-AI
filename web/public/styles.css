@@ -1,0 +1,146 @@
+:root {
+    --bulma-primary-h: 176deg;
+    --bulma-primary-s: 56%;
+    --bulma-primary-l: 55%;
+    --bulma-link-h: 62deg;
+    --bulma-link-s: 57%;
+    --bulma-link-l: 65%;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        background-color: #E7F2DC;
+        color: #325947;
+    }
+
+}
+
+@media (max-width: 1300px) {
+    .image {
+        display: none !important;
+    }
+
+    .hada {
+        margin-left: 0rem !important;
+    }
+
+    progress {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .fillf {
+        display: none;
+    }
+
+    .form {
+        width: 90% !important;
+    }
+
+    .dd {
+        font-size: 30px !important;
+    }
+}
+
+
+
+.bb {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px);
+    color: #325947 !important;
+    box-shadow: 4px 5px 15px rgba(96, 96, 96, 0.1);
+}
+
+.hada {
+    margin-left: 3rem;
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.main-scene {
+    animation: transitionIn 1s;
+}
+
+.top {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: transitionIn 0.5s;
+    width: 50%;
+}
+
+.custom-input {
+    background-color: #E7F2DC;
+    color: #325947;
+}
+
+.shadow {
+    box-shadow: 4px 3px 20px rgba(96, 96, 96, 0.126);
+}
+
+.custom-input::placeholder {
+    color: #325947;
+    opacity: 0.5;
+}
+
+progress {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bg {
+    background: radial-gradient(at center top, #E7F2DC, #fbfff6, #f3f5ba) !important;
+}
+
+hr {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.test .columns {
+    display: flex;
+    justify-content: center;
+    /* Horizontally centers columns */
+    align-items: center;
+    /* Vertically centers columns */
+    height: 100%;
+    /* Ensure the columns take full height */
+}
+
+.test .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centers content within the column */
+    justify-content: center;
+    /* Centers content vertically */
+}
+
+strong {
+    color: #D5D973;
+}

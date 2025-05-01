@@ -1,0 +1,160 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+        background: radial-gradient(at center top, #E7F2DC, #fbfff6, #f3f5ba);
+        color: #325947;
+    }
+
+}
+
+:root {
+    --bulma-success-h: 152deg;
+    --bulma-success-s: 28%;
+    --bulma-success-l: 27%;
+}
+:root {
+    --bulma-primary-h: 176deg;
+    --bulma-primary-s: 56%;
+    --bulma-primary-l: 55%;
+}
+
+
+
+
+.section-title {
+    background-color: #325947;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.form {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.op {
+    position: fixed;
+    top: 0;
+}
+
+.z {
+    margin-bottom: 200px;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-select select {
+    background-color: #f0f0f0 !important;
+    color: black;
+}
+
+.custom-input {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.custom-input::placeholder {
+    color: black;
+}
+
+.w {
+    width: 80%;
+}
+
+.wid {
+    width: 300px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.main-scene {
+    animation: transitionIn 1s;
+}
+
+br {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.lfo {
+    margin-top: 70px;
+}
+
+.rig {
+    margin-right: 40px;
+    margin-left: 350px;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-text-color td {
+    color: black;
+}
+
+.table {
+    animation: transitionIn 1s;
+}
+
+.invisible {
+    display: none !important;
+}
+
+.ged {
+    position: absolute;
+    top: 0%;
+}
+.tele {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .field.is-horizontal {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .tele {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        
+    }
+}
+
+strong {
+    color: #D5D973;
+}
+
+a {
+    color: #D5D973;
+}

@@ -1,9 +1,9 @@
-const express = require('express');
-const { addData, getData } = require('../controllers/dataController');
+import express from 'express';
+import { addData, getData } from '../controllers/dataController.js';
 
 const router = express.Router();
 
 router.post('/add-data', addData);
 router.get('/get-data', getData);
 
-module.exports = router;
+export default router;

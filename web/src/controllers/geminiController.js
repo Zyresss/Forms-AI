@@ -1,14 +1,18 @@
-const { generateGeminiContent } = require('../services/googleGeminiService');
+import generateGeminiContent from '../services/googleGeminiService.js';
 
-async function getGeminiResponse(request, response) {
+export default async function getGeminiResponse(request, response) {
     try {
-        const result = await generateGeminiContent();
-        response.status(200).json({ result: result });
+        const { prompt } = request.body;
+        if (!prompt) {
+            return response.status(400).json({ error: 'Prompt is required' });
+        }
+
+        const result = await generateGeminiContent(prompt);
+        console.log('Received response from Gemini');
+        return response.status(200).json({ result: result });
     }
     catch (error) {
         console.error('Gemini API error: ', error);
-        response.status(500).json({ error: 'Failed to fetch Gemini response' });
+        return response.status(500).json({ error: 'Failed to fetch Gemini response' });
     }
 }
-
-module.exports = { getGeminiResponse };

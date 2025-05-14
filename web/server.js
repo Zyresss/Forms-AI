@@ -1,5 +1,5 @@
-const app = require('./src/app');
-const { connectToDB } = require('./src/config/dbConfig');
+import app from './src/app.js';
+import { connectToDB } from './src/config/dbConfig.js';
 
 const port = 3000;
 const webAdress = `http://localhost:${port}`;

@@ -1,9 +1,13 @@
-const express = require('express');
-const path = require('path');
-const cors = require('cors');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import cors from 'cors';
+import dataRoutes from './routes/dataRoutes.js';
+import geminiRoutes from './routes/geminiRoutes.js';
 
-const dataRoutes = require('./routes/dataRoutes');
-const geminiRoutes = require('./routes/geminiRoutes');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 
@@ -27,4 +31,4 @@ app.get('/favicon.ico', (request, response) => {
     response.status(204).end();
 });
 
-module.exports = app;
+export default app;

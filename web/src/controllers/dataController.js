@@ -1,7 +1,8 @@
-const { getDB } = require('../config/dbConfig');
+import { getDB } from '../config/dbConfig.js';
+
 const myCollection = 'my collection';
 
-const addData = async (request, response) => {
+export const addData = async (request, response) => {
     try {
         console.log('Request received: ', request.body);
         
@@ -22,7 +23,7 @@ const addData = async (request, response) => {
     }
 };
 
-const getData = async (request, response) => {
+export const getData = async (request, response) => {
     try {
         const database = getDB();
         console.log('Message from dataController.js: Connected to database');
@@ -37,7 +38,7 @@ const getData = async (request, response) => {
               'Date of Birth': 1,
               'Email Address': 1,
               'Phone Number': 1,
-              'Address': 1,
+              'Home Address': 1,
               'Desired Degree Program': 1,
               _id: 0
             }
@@ -50,5 +51,3 @@ const getData = async (request, response) => {
         response.status(500).json({ message: 'Error fetching users' });
     }
 };
-
-module.exports = { addData, getData };

@@ -1,0 +1,28 @@
+I have a university project where I need to create a dynamic form for student enrollment using JavaScript. The form should be generated from a JSON object created by AI. The specific context or goal of the form will be provided by the user as a prompt. Here's what I need:
+
+1. The JSON output must be a single array (starting with `[` and ending with `]`).
+
+2. Each element of the array should be an object with two keys:
+   - `"section"`: The title of the form section (e.g., "Personal Information", "Contact Information", etc.).
+   - `"fields"`: An object containing the input fields for that section, formatted as `"Input Label": "Input Type"`.
+
+3. If a field is of type radio (e.g., Gender), use an array to specify the options. Example: `"Gender": ["Male", "Female"]`.
+
+4. The form should include exactly **25 input fields** in total (labels and inputs).
+
+5. The following fields must appear **in this exact order**, somewhere in the appropriate sections:
+   - "Last Name": "text"
+   - "First Name": "text"
+   - "Date of Birth": "date"
+   - "Email Address": "email"
+   - "Phone Number": "tel"
+   - "Home Address": "text"
+   - "Desired Degree Program": "text"
+
+6. Include additional questions based on the user's prompt, such as their desired specialty or program focus.
+
+7. Do **not** include emergency contact information.
+
+8. Output **only** the JSON array. Do not include code formatting (like triple backticks), file headers, or explanations.
+
+9. I will be using `JSON.stringify()` in JavaScript to parse the output and generate the form dynamically.

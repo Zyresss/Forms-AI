@@ -1,16 +1,27 @@
 @media (prefers-color-scheme: dark) {
     :root {
-        background: radial-gradient(at center top, #E7F2DC, #fbfff6, #f3f5ba);
+        background: #E7F2DC;
         color: #325947;
     }
+}
 
+
+@media (prefers-color-scheme: light) {
+    :root {
+        background: #E7F2DC;
+        color: #325947;
+    }
 }
 
 :root {
     --bulma-success-h: 152deg;
     --bulma-success-s: 28%;
     --bulma-success-l: 27%;
+    --bulma-link-h: 62deg;
+    --bulma-link-s: 57%;
+    --bulma-link-l: 65%;
 }
+
 :root {
     --bulma-primary-h: 176deg;
     --bulma-primary-s: 56%;
@@ -40,8 +51,8 @@
 
 .op {
     position: fixed;
-    top: 0px;
-    left : 0px;
+    bottom: 10px;
+    right: 20px;
     z-index: 1000;
 }
 
@@ -133,6 +144,7 @@ br {
     position: absolute;
     top: 0%;
 }
+
 .tele {
     margin-left: 3rem;
     margin-right: 3rem;
@@ -145,26 +157,30 @@ br {
         justify-content: center;
         align-items: center;
     }
+
     .tele {
         margin: 0;
         display: flex;
         justify-content: center;
-        
+
     }
+
     .table {
         display: none;
     }
+
     #download-btn {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         display: flex;
         flex-direction: column-reverse;
         justify-content: center;
         width: 70%;
         height: 70%;
     }
+
     .photo {
         width: 60%;
         height: 60%;
@@ -181,4 +197,86 @@ a {
 
 .green {
     color: #325947;
+}
+
+:root {
+    --bulma-primary-h: 62deg;
+    --bulma-primary-s: 64%;
+    --bulma-primary-l: 34%;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column !important;
+        justify-content: center;
+        margin: 20px;
+    }
+
+    .navbar-brand {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar-item {
+        display: flex;
+        flex-direction: column;
+        margin: 0px !important;
+        width: 100%;
+    }
+
+    .nav-buttons {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+}
+
+/* Enhanced Modal Styles */
+.modal-content {
+    max-width: 95vw;
+    max-height: 90vh;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+#table-container {
+    max-height: 70vh;
+    overflow: auto;
+    padding: 20px;
+    background: white;
+}
+
+/* Responsive Table Styles */
+.table-wrapper {
+    position: relative;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#admin-table {
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+}
+
+#admin-table th {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+#admin-table td {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+    white-space: nowrap;
 }

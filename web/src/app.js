@@ -25,8 +25,9 @@ app.use('/api/data', dataRoutes);
 app.use('/api/gemini', geminiRoutes);
 
 // Server the main HTML file
-app.get('/', (request, response) => response.sendFile(path.join(__dirname, '../public/index.html')));
+app.get('/', (request, response) => response.sendFile(path.join(__dirname, '../public/html/index.html')));
 
+// Might fix this (mybe not lol)
 app.get('/favicon.ico', (request, response) => {
     response.status(204).end();
 });

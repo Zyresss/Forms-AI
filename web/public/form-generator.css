@@ -1,0 +1,494 @@
+/* CSS Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #325947;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.form-box {
+    animation: transitionIn 1s;
+}
+
+/* Form Controls and Builder Styles */
+.form-builder {
+
+    width: 400px !important;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.builder-section {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.builder-section h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.control-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+button {
+    color: #325947 !important;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+
+.field-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Prevent wrapping */
+    gap: 10px;
+    /* Space between buttons */
+    margin-bottom: 15px;
+    overflow-x: auto;
+    /* Optional: allow scroll if too many buttons */
+}
+
+.field-buttons .button {
+    width: 45px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+
+/* Preview Area Styles */
+.preview-area {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.preview-form {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px dashed #ccc;
+    background-color: #f9f9f9;
+    min-height: 200px;
+}
+
+.preview-form label {
+    margin-top: 10px;
+}
+
+/* Form Fields List */
+.form-fields-list {
+    margin-top: 20px;
+}
+
+.field-item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 3px solid #D5D973;
+    position: relative;
+}
+
+.field-item .field-title {
+    font-weight: bold;
+}
+
+.field-item .field-details {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.field-item .delete-field {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.field-item .delete-field:hover {
+    background-color: #c0392b;
+}
+
+/* Code Output Area */
+.code-output {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.code-output pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 14px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.copy-btn:hover {
+    background-color: #219653;
+}
+
+.op {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    /* spacing between options */
+}
+
+.radio-group>div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* spacing between label and radio */
+}
+
+.radioslot {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* spacing between options */
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .op {
+        display: flex;
+        position: fixed;
+        top: auto;
+        left: auto;
+        right: 10px;
+        bottom: 0px;
+    }
+}
+
+/* Additional Responsive CSS for Form Generator */
+
+/* Base responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+
+    .form-builder,
+    .preview-area {
+        width: 100% !important;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem !important;
+        margin-top: 15px;
+    }
+
+    .field-buttons {
+        justify-content: flex-start;
+        margin-bottom: 15px;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px;
+    }
+
+    .field-buttons .button {
+        min-width: 45px;
+        flex-shrink: 0;
+    }
+
+    .preview-form {
+        padding: 10px;
+    }
+
+    #formFieldsList {
+        max-height: 250px;
+        overflow-y: auto;
+    }
+}
+
+/* Even smaller screens */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .form-box {
+        padding: 0;
+    }
+
+    .field-item {
+        padding: 8px;
+    }
+
+    .field-item .field-title {
+        font-size: 14px;
+    }
+
+    .field-item .field-details {
+        font-size: 11px;
+    }
+
+    /* Adjust modal for smaller screens */
+    #fieldModal {
+        overflow-y: auto;
+        display: flex;
+        align-items: flex-start !important;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    #fieldModal>div {
+        width: 95%;
+        max-width: 95%;
+        margin: 20px auto;
+        padding: 15px;
+        position: relative;
+        top: 0;
+        transform: none;
+    }
+
+    /* Adjust AI prompt modal */
+    #prompt-scen .textarea {
+        width: 90% !important;
+        height: 70% !important;
+    }
+
+    /* Make form controls easier to tap */
+    input,
+    select,
+    textarea,
+    .button {
+        padding: 10px !important;
+        font-size: 16px !important;
+        /* Prevents iOS zoom on focus */
+    }
+
+    /* Improve form fields display */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    /* Make the radio groups stack vertically on mobile */
+    .radio-group {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+
+    .radio-group>div {
+        width: 100%;
+    }
+
+    /* Adjust buttons in the preview area */
+    .preview-area .button,
+    .is-flex .button {
+        padding: 8px 12px !important;
+        font-size: 14px !important;
+    }
+
+    /* Fix the fixed position button */
+    .op {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .op a svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Fix for iPhone 5/SE and other very small devices */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    h1 {
+        font-size: 1.3rem !important;
+    }
+
+    .builder-section h2 {
+        font-size: 16px;
+    }
+
+    .field-buttons .button {
+        width: 40px;
+        height: 35px;
+    }
+
+    #fieldModal>div {
+        margin: 30px auto;
+        padding: 10px;
+    }
+
+    /* Further reduce button size */
+    .button {
+        padding: 6px 10px !important;
+        font-size: 13px !important;
+    }
+}
+
+/* Also update the main modal CSS to ensure it works well on all devices */
+#fieldModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#fieldModal>div {
+    background-color: white;
+    width: 90%;
+    max-width: 500px;
+    margin: 10vh auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+#modalContent {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Add this at the beginning */
+html,
+body {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Fix for when the keyboard appears on mobile */
+@media (max-height: 500px) {
+    #fieldModal {
+        align-items: flex-start;
+    }
+
+    #fieldModal>div {
+        margin: 10px auto;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+
+    #modalContent {
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+}
+
+/* Improve form inputs on touch devices */
+@media (hover: none) {
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        min-width: 20px;
+        min-height: 20px;
+    }
+
+    label {
+        padding: 8px 0;
+    }
+}

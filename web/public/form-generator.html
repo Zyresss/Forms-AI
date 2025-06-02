@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="form-generator.css">
+    <style>
+        .semi-transparent-field {
+            opacity: 0.8;
+        }
+
+        .is-beign-draged {
+            width: 100px;
+            height: 70px;
+            position: absolute;
+            cursor: grab;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="has-text-weight-bold is-size-2 has-text-success mt-2" style="color: #325947 !important;">Form Generator
+    </h1>
+
+    <div class="ml-5 mt-4 op">
+        <a href="index.html">
+            <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                transform="matrix(1, 0, 0, 1, 0, 0)">
+
+                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
+                    stroke-width="0.336" />
+
+                <g id="SVGRepo_iconCarrier">
+                    <path
+                        d="M20 10L20.7071 10.7071L21.4142 10L20.7071 9.29289L20 10ZM3 18C3 18.5523 3.44772 19 4 19C4.55229 19 5 18.5523 5 18L3 18ZM15.7071 15.7071L20.7071 10.7071L19.2929 9.29289L14.2929 14.2929L15.7071 15.7071ZM20.7071 9.29289L15.7071 4.29289L14.2929 5.70711L19.2929 10.7071L20.7071 9.29289ZM20 9L10 9L10 11L20 11L20 9ZM3 16L3 18L5 18L5 16L3 16ZM10 9C6.13401 9 3 12.134 3 16L5 16C5 13.2386 7.23858 11 10 11L10 9Z"
+                        fill="#33363F" />
+                </g>
+
+            </svg>
+        </a>
+    </div>
+    <div class="form-box">
+        <div class="container">
+            <!-- Form Builder Section -->
+            <div class="form-builder">
+                <div class="builder-section">
+                    <h2>Form Settings</h2>
+                    <div class="">
+                        <div class="control-group">
+                            <label for="formTitle">Form Title</label>
+                            <input type="text" id="formTitle" placeholder="Enter form title" style="width: 90%;">
+                        </div>
+                        <div class="control-group">
+                            <label for="formDescription">Form Description</label>
+                            <textarea id="formDescription" placeholder="Enter form description" rows="4" style="width: 90%; resize: none;"></textarea>
+                            <p style="color: #3259477d;">Max size: 500 characters</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="builder-section">
+                    <h2>Form Fields</h2>
+                    <div id="formFieldsList" class="form-fields-list">
+                        <div class="empty-message">No fields added yet. Click the buttons above to add form fields.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Preview Section -->
+            <div class="preview-area">
+
+                <div class="is-flex is-justify-content-space-between">
+                    <div class="field-buttons">
+                        <button class="button is-link" id="addSection" title="Section title">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3V21M9 21H15M19 6V3H5V6" stroke="#000000" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="button is-link" id="addText" title="Text">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22 12V21M2 21L8 3L14 21M11 14H5M19 21C17.3431 21 16 19.6569 16 18V15C16 13.3431 17.3431 12 19 12C20.6569 12 22 13.3431 22 15V18C22 19.6569 20.6569 21 19 21Z"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+
+                        <button class="button is-link" id="addEmail" title="Email">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3 8L8.44992 11.6333C9.73295 12.4886 10.3745 12.9163 11.0678 13.0825C11.6806 13.2293 12.3194 13.2293 12.9322 13.0825C13.6255 12.9163 14.2671 12.4886 15.5501 11.6333L21 8M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="button is-link" id="addPassword" title="Password">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16 8.00169L16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V8.00169M16 8.00169C15.7563 8 15.4907 8 15.2 8H8.8C8.50929 8 8.24373 8 8 8.00169M16 8.00169C17.1649 8.00979 17.8313 8.05658 18.362 8.32698C18.9265 8.6146 19.3854 9.07354 19.673 9.63803C20 10.2798 20 11.1198 20 12.8V16.2C20 17.8802 20 18.7202 19.673 19.362C19.3854 19.9265 18.9265 20.3854 18.362 20.673C17.7202 21 16.8802 21 15.2 21H8.8C7.11984 21 6.27976 21 5.63803 20.673C5.07354 20.3854 4.6146 19.9265 4.32698 19.362C4 18.7202 4 17.8802 4 16.2V12.8C4 11.1198 4 10.2798 4.32698 9.63803C4.6146 9.07354 5.07354 8.6146 5.63803 8.32698C6.16873 8.05658 6.83507 8.00979 8 8.00169M10 11V18M14 11V18M8.5 12.5H15.5M8.5 16.5H15.5"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="button is-link" id="addTextarea" title="Text Area">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 12H20M4 8H20M4 16H12" stroke="#000000" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="button is-link" id="addCheckbox" title="Checkbox">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8 12.5L10.5 15L16 9M7.2 20H16.8C17.9201 20 18.4802 20 18.908 19.782C19.2843 19.5903 19.5903 19.2843 19.782 18.908C20 18.4802 20 17.9201 20 16.8V7.2C20 6.0799 20 5.51984 19.782 5.09202C19.5903 4.71569 19.2843 4.40973 18.908 4.21799C18.4802 4 17.9201 4 16.8 4H7.2C6.0799 4 5.51984 4 5.09202 4.21799C4.71569 4.40973 4.40973 4.71569 4.21799 5.09202C4 5.51984 4 6.07989 4 7.2V16.8C4 17.9201 4 18.4802 4.21799 18.908C4.40973 19.2843 4.71569 19.5903 5.09202 19.782C5.51984 20 6.07989 20 7.2 20Z"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="button is-link" id="addRadio" title="Radio">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 8L16 8.00053M11 12L16 12.0005M11 16L16 16.0005M8 16H8.01M8 12H8.01M8 8H8.01M7.2 4H16.8C17.9201 4 18.4802 4 18.908 4.21799C19.2843 4.40973 19.5903 4.71569 19.782 5.09202C20 5.51984 20 6.0799 20 7.2V16.8C20 17.9201 20 18.4802 19.782 18.908C19.5903 19.2843 19.2843 19.5903 18.908 19.782C18.4802 20 17.9201 20 16.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V7.2C4 6.0799 4 5.51984 4.21799 5.09202C4.40973 4.71569 4.71569 4.40973 5.09202 4.21799C5.51984 4 6.0799 4 7.2 4Z"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="button is-link" id="addSelect" title="Select">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8 6L21 6.00078M8 12L21 12.0008M8 18L21 18.0007M3 6.5H4V5.5H3V6.5ZM3 12.5H4V11.5H3V12.5ZM3 18.5H4V17.5H3V18.5Z"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="button is-link" id="addNumber" title="Number">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7 3V21M7 21L3 17M7 21L11 17M16.5 5L18.5 3V10M16.5 10H20.5M20.5 18L18 21M21 16.5C21 17.8807 19.8807 19 18.5 19C17.1193 19 16 17.8807 16 16.5C16 15.1193 17.1193 14 18.5 14C19.8807 14 21 15.1193 21 16.5Z"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="button is-link" id="addFile" title="File">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 3V7C14 7.55228 14.4477 8 15 8H19M14 3L19 8M14 3H10C8.89543 3 8 3.89543 8 5V19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8M14 3V7C14 7.55228 14.4477 8 15 8H19M12 12V16M10 14H14"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="button is-link" id="addDate" title="Date">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="has-text-right">
+                        <button class="button is-success is-rounded" id="generateCode"
+                            style="background-color: #325947 !important; color: #E7F2DC !important;">AI
+                            assistant</button>
+                    </div>
+                </div>
+
+                <h2 style="display: inline;">Form Preview</h2>
+                <h4 style="display: inline;">(<span style="color: red;">*</span> Indicates a required field)</h4>
+                <div id="previewForm" class="preview-form">
+                    <h3 id="previewTitle">My Form</h3>
+                    <form id="generatedForm">
+                        <!-- Preview will be generated herez -->
+                        <p class="empty-preview">Add form fields to see a preview here.</p>
+                    </form>
+                </div>
+                <div class="">
+                    <button class="button is-link" id="saveForm" type="button">Save Form</button>
+                    <button class="button is-danger ml-3" id="resetForm" type="button">Reset Form</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for field configuration -->
+        <div id="fieldModal"
+            style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); z-index: 1000;">
+            <div
+                style="background-color: white; width: 90%; max-width: 500px; margin: 50px auto; padding: 20px; border-radius: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                <h2 id="modalTitle">Configure Field</h2>
+
+                <div id="modalContent">
+                    <!-- Will be populated dynamically -->
+                </div>
+
+                <div style="margin-top: 20px; text-align: right;">
+                    <button class="button is-danger" id="cancelField" style="margin-right: 10px;">Cancel</button>
+                    <button class="button is-link" id="saveField">Save Field</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Output Modal -->
+        <div style="display: none; position: fixed; top:0; left:0; right:0; bottom:0; background-color: rgba(0,0,0,0.5); z-index: 1000;"
+            id="codeOutput">
+            <div class="" id="prompt-scen">
+                <div class="is-flex is-justify-content-center is-align-items-center" style="height: 100vh;">
+                    <div style="width: 70%; height: 70%; border-radius: 20px; padding: 20px;">
+                        <div class="has-background-warning-light has-text-centered mb-4"
+                            style="padding: 1rem; border-radius: 6px; background-color: #325947 !important;">
+                            <p class="is-size-6" style="color: #ffffff; letter-spacing: 0.25px; font-weight: 500;">
+                                ⚠️ AI-generated content may contain inaccuracies. Always verify important information.
+                            </p>
+                        </div>
+
+                        <textarea class="textarea" id="user-prompt" placeholder="Describe your form type."
+                            style="width: 70%; height: 84%; border-color: #325947; font-size: 1.1rem; resize: none;"></textarea>
+
+                        <div class="has-text-right mt-4">
+                            <button class="button is-danger is-rounded is-size-5" id="cancelAI"
+                                style="margin-right: 10px; border-color: #325947;">Cancel</button>
+                            <button class="button is-link is-rounded is-size-5" id="generate-form"
+                                style="color: #3f6f59; background-color: #D5D973;">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="form-generator.js" type="module"></script>
+
+</body>
+
+</html>

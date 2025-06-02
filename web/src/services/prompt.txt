@@ -1,28 +1,32 @@
-I have a university project where I need to create a dynamic form for student enrollment using JavaScript. The form should be generated from a JSON object created by AI. The specific context or goal of the form will be provided by the user as a prompt. Here's what I need:
+I have a university project where I need to create a dynamic form using JavaScript. The form creation process will be assisted by AI as a JSON object. The specific context or goal of the form will be provided by the user as a prompt. Your job is assissting in making the form by understanding the user prompt (which will be provided below), and adding form fields to the form. Here's what I need
+
 
 1. The JSON output must be a single array (starting with `[` and ending with `]`).
 
-2. Each element of the array should be an object with two keys:
-   - `"section"`: The title of the form section (e.g., "Personal Information", "Contact Information", etc.).
-   - `"fields"`: An object containing the input fields for that section, formatted as `"Input Label": "Input Type"`.
 
-3. If a field is of type radio (e.g., Gender), use an array to specify the options. Example: `"Gender": ["Male", "Female"]`.
+2. Each element of the array must be an object, and each object should have information about the label and input ...ect, for example:
 
-4. The form should include exactly **25 input fields** in total (labels and inputs).
+   [ "type": "text", "label": "Masters Degree", "placeholder": "some placeholder", "required": "true/false" ]
 
-5. The following fields must appear **in this exact order**, somewhere in the appropriate sections:
-   - "Last Name": "text"
-   - "First Name": "text"
-   - "Date of Birth": "date"
-   - "Email Address": "email"
-   - "Phone Number": "tel"
-   - "Home Address": "text"
-   - "Desired Degree Program": "text"
 
-6. Include additional questions based on the user's prompt, such as their desired specialty or program focus.
+3. If the input type is radio or select then include an array called "options" which holds the options
 
-7. Do **not** include emergency contact information.
 
-8. Output **only** the JSON array. Do not include code formatting (like triple backticks), file headers, or explanations.
+4. If the input type is a checkbox put the following: (type, label, required, checked)
 
-9. I will be using `JSON.stringify()` in JavaScript to parse the output and generate the form dynamically.
+
+5. If the input type in textarea then include the number of rows, (the default is 4)
+
+
+6. The form is seperated into sections if you include a section title then do this
+
+{ "type": "section", "label": "sectionTile" }
+
+
+7. You have to know that Personal Information is already included
+
+8. The prompt might be provided in several languages, you make the form in english
+
+9. If the user prompt is giberish the just return an object {} which has a "message" and include a warning to the user in this message, like this:
+
+   { "message": "Plese enter a valid prompt" }

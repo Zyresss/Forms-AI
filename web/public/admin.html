@@ -4,23 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="form-selector.css">
     <title>Admin</title>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                background: #E7F2DC;
-                color: #325947;
-            }
-
-        }
-    </style>
 </head>
 
 <body>
     <div class="main-scene">
+        <nav class="navbar p-4 is-flex is-justify-content-space-between"
+            style="background-color: #325947; border-radius: 20px;" role="navigation" aria-label="main navigation"
+            id="navbar">
+            <div class="navbar-brand">
+                <p class="ml-4 has-text-weight-bold is-size-2" style="color: #E7F2DC ;">Admin Page</p>
+            </div>
+            <div class="navbar-item">
+                <div class="nav-buttons" style=" margin-bottom: 0px !important;">
+                    <a>
+                        <button class="button is-link is-size-5 is-rounded" id="download-all-data-btn"
+                            style="color:#325947;">Download Excel</button>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div class="container mt-6">
+            <div id="formsList" class="form-list">
+                <!-- Forms will be dynamically loaded here -->
+            </div>
+
+            <div id="noForms" class="no-forms" style="display: none;">
+                <p>You haven't created any forms yet.</p>
+                <a href="form-generator.html">
+                    <button class="button is-link is-size-5" style="color: #325947;">Create a From</button>
+                </a>
+            </div>
+        </div>
+
         <div class="ml-5 mt-4 op">
             <a href="index.html">
                 <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -40,31 +60,54 @@
                 </svg>
             </a>
         </div>
-        <div class="is-flex is-justify-content-center is-align-items-center " style="height: auto;">
-
-            <div id="show" class="ged is-flex is-justify-content-center mt-5">
-                <p class="mt-1" style="font-size: 17px; font-weight: bold; color : black;">Show Forms :</p>
-                <button id="get-admin-data-btn" class="ml-2 button is-primary is-rounded">Show</button>
-            </div>
-            <p class="middle" id="text" style="color: #B3BFAA;">no items available at the moment</p>
-            <div id="table-container" class="mt-6 is-hidden">
-                <table class="table is-bordered is-link" id="admin-table" style="background-color: #E7F2DC;">
-                    <button class="green has-text-weight-bold is-flex invisible" id="download-btn">
-                        <div class="is-flex is-align-items-center is-justify-content-center">
-                            Download as excel
+        <!-- Form Viewer Modal -->
+        <div id="formModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" id="closeModal">&times;</span>
+                <div id="successMessage" class="success-message">
+                    Form submitted successfully!
+                </div>
+                <div id="formContainer" class="form-container">
+                    <!-- Form will be loaded here -->
+                    <div class="is-flex is-justify-content-center is-align-items-center " style="height: auto;">
+                        <div id="table-container" class="mt-6 is-hidden">
+                            <table class="table is-bordered is-link" id="admin-table"
+                                style="background-color: #E7F2DC;">
+                                <button class="green has-text-weight-bold is-flex invisible" id="download-btn">
+                                    <div class="is-flex is-align-items-center is-justify-content-center">
+                                        Download as excel
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50"
+                                        viewBox="0 0 48 48">
+                                        <path fill="#4CAF50"
+                                            d="M41,10H25v28h16c0.553,0,1-0.447,1-1V11C42,10.447,41.553,10,41,10z">
+                                        </path>
+                                        <path fill="#FFF"
+                                            d="M32 15H39V18H32zM32 25H39V28H32zM32 30H39V33H32zM32 20H39V23H32zM25 15H30V18H25zM25 25H30V28H25zM25 30H30V33H25zM25 20H30V23H25z">
+                                        </path>
+                                        <path fill="#2E7D32" d="M27 42L6 38 6 10 27 6z"></path>
+                                        <path fill="#FFF"
+                                            d="M19.129,31l-2.411-4.561c-0.092-0.171-0.186-0.483-0.284-0.938h-0.037c-0.046,0.215-0.154,0.541-0.324,0.979L13.652,31H9.895l4.462-7.001L10.274,17h3.837l2.001,4.196c0.156,0.331,0.296,0.725,0.42,1.179h0.04c0.078-0.271,0.224-0.68,0.439-1.22L19.237,17h3.515l-4.199,6.939l4.316,7.059h-3.74V31z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </table>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">
-                            <path fill="#4CAF50" d="M41,10H25v28h16c0.553,0,1-0.447,1-1V11C42,10.447,41.553,10,41,10z"></path><path fill="#FFF" d="M32 15H39V18H32zM32 25H39V28H32zM32 30H39V33H32zM32 20H39V23H32zM25 15H30V18H25zM25 25H30V28H25zM25 30H30V33H25zM25 20H30V23H25z"></path><path fill="#2E7D32" d="M27 42L6 38 6 10 27 6z"></path><path fill="#FFF" d="M19.129,31l-2.411-4.561c-0.092-0.171-0.186-0.483-0.284-0.938h-0.037c-0.046,0.215-0.154,0.541-0.324,0.979L13.652,31H9.895l4.462-7.001L10.274,17h3.837l2.001,4.196c0.156,0.331,0.296,0.725,0.42,1.179h0.04c0.078-0.271,0.224-0.68,0.439-1.22L19.237,17h3.515l-4.199,6.939l4.316,7.059h-3.74V31z"></path>
-                            </svg>
-                    </button>
-                    
-                </table>
+                    </div>
+                </div>
             </div>
         </div>
         <br>
     </div>
 
     <script src="admin.js" type="module" defer></script>
+    <script>
+        function downloadFile(formIndex, fileName) {
+            const encodedFileName = encodeURIComponent(fileName);
+            const url = `/api/data/download/${formIndex}/${encodedFileName}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 
 </html>

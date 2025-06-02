@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colored Squares</title>
+    <style>
+        body {
+            margin: 20px;
+            background: #f0f0f0;
+            font-family: sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .semi-transparent-field {
+            opacity: 0.8;
+        }
+
+        .is-beign-draged {
+            width: 100px;
+            height: 70px;
+            position: absolute;
+            cursor: grab;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Colorful Squares</h1>
+    <div class="container" id="cont">
+        <div class="square" style="background-color: #e74c3c;"></div>
+        <div class="square" style="background-color: #3498db;"></div>
+        <div class="square" style="background-color: #2ecc71;"></div>
+        <div class="square" style="background-color: #f1c40f;"></div>
+        <div class="square" style="background-color: #9b59b6;"></div>
+        <div class="square" style="background-color: #1abc9c;"></div>
+        <div class="square" style="background-color: #e67e22;"></div>
+        <div class="square" style="background-color: #34495e;"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('cont');
+            const squares = Array.from(container.querySelectorAll('.square'));
+
+            container.innerHTML = '';
+
+            squares.forEach((square, index) => {
+                const wrapper = document.createElement('div');
+                wrapper.setAttribute('data-index', index);
+                wrapper.appendChild(square);
+                container.appendChild(wrapper);
+            });
+
+            console.log(container.innerHTML);
+
+            squares.forEach((square, index) => {
+                console.log(`Square data: ${square}, index: ${index}`);
+
+                let isBeingDraged = false;
+                let squareBeingDraged = null;
+                let offsetX = 0;
+                let offsetY = 0;
+
+                square.addEventListener('dragstart', (event) => {
+                    if (event.button !== 0) return;
+                    isBeingDraged = true;
+                    offsetX = event.clientX - square.offsetLeft;
+                    offsetY = event.clientY - square.offsetTop;
+                    square.style.cursor = 'grabbing';
+                    squareBeingDraged = { sqr: event.target, i: index};
+                    console.log(squareBeingDraged, square);
+                });
+
+                document.addEventListener('dragover', (event) => {
+                    if (!isBeingDraged) return;
+                    square.style.left = (event.clientX - offsetX) + 'px';
+                    square.style.top = (event.clientY - offsetY) + 'px';
+                });
+
+                document.addEventListener('mouseup', () => {
+                    isBeingDraged = false;
+                    square.style.cursor = 'grab';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

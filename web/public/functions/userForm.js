@@ -61,24 +61,40 @@ export async function getResponseFromGemini(prompt) {
             throw new Error('Failed to fetch Gemini response');
         }
 
-        /*
-        const rawText = await response.text();
-        console.log('Raw response text: ', rawText);
-
-        // parse outer json
-        const parsedOuter = JSON.parse(rawText);
-
-        const cleanedResponseText = parsedOuter.result*/
         const { result } = await response.json();
-        console.log('Gemini API Response: ', result);
         const cleanedResponseText = result
-                .replace(/^\s*```json\s*/i, '')
+                .replace(/^```(?:json)?\s*/i, '')
                 .replace(/\s*```$/, '')
-                .trim();
+                .replace(/\s*```[\s\n]*$/, '');
                 
         return cleanedResponseText;
     }
     catch (error) {
         console.error('Error getting Gemini data: ', error);
     }
+}
+
+
+
+
+
+function buildUserFormWIP(formObject) {
+    let htmlFormBody = ``;
+
+    formObject.forEach((sec) => {
+        htmlFormBody += `${sec.section}`;
+
+        sec.fields.forEach((field, index) => {
+            const required = field.required;
+            switch (field.type) {
+                case 'text': case 'email': case 'password': case 'number':
+                    htmlFormBody += `
+                        <label>${field.label}</label>
+                        <input type="${field.type}" placeholder="Enter ${field.label}" ${field.required ? required : ''}>
+                        <br>`;
+                break;
+                
+            }
+        });
+    });
 }

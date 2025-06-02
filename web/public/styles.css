@@ -15,6 +15,13 @@
 
 }
 
+@media (prefers-color-scheme: light) {
+    :root {
+        background-color: #E7F2DC;
+        color: #325947;
+    }
+}
+
 @media (max-width: 1300px) {
     .image {
         display: none !important;
@@ -69,6 +76,7 @@
 .main-scene {
     animation: transitionIn 1s;
 }
+
 #second-window {
     animation: transitionIn 1s;
 }
@@ -125,6 +133,7 @@ hr {
     margin-bottom: 50px;
 }
 
+
 .test .columns {
     display: flex;
     justify-content: center;
@@ -150,4 +159,73 @@ strong {
 
 .invisible {
     display: none !important;
+}
+
+hr {
+    background-color: #325947;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    animation: transitionIn 1s;
+}
+
+.op {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+}
+
+.feature-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.feature-card p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.feature-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .features {
+        flex-direction: row;
+        align-items: center;
+        gap: 0px;
+    }
+
+    .feature-card {
+        max-width: 100%;
+        margin: 20px;
+        margin-bottom: 0px;
+    }
 }

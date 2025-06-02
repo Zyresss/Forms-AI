@@ -16,7 +16,6 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export default async function generateGeminiContent(prompt) {
     const fullUserPrompt = promptTemplate + "\n\nHere is the user prompt: " + prompt;
-    console.log('Full user prompt: ', fullUserPrompt);
     
     try {
         const result = await ai.models.generateContent({

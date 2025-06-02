@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Selector</title>
+    <script src="https://cdn.jsdelivr.net/npm/validator@13.9.0/validator.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="form-selector.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="has-text-weight-bold is-size-2" style="color: #325947 ;">Form Selector</h1>
+
+        <div class="nav-buttons">
+            <a href="form-generator.html">
+                <button class="button is-link is-size-5 is-rounded" style="color: #325947 ;">Form Generator</button>
+            </a>
+            <a href="index.html" class="active">
+                <button class="button is-size-5 is-rounded is-link" style="color: #325947 ;">Home Page</button>
+            </a>
+        </div>
+
+        <div id="formsList" class="form-list">
+            <!-- Forms will be dynamically loaded here -->
+        </div>
+
+        <div id="noForms" class="no-forms" style="display: none;">
+            <p>You haven't created any forms yet.</p>
+            <a href="form-generator.html">
+                <button class="button is-link is-size-5" style="color: #325947;">Create a From</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Form Viewer Modal -->
+    <div id="formModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div id="successMessage" class="success-message">
+                Form submitted successfully!
+            </div>
+            <div id="formContainer" class="form-container">
+                <!-- Form will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="form-selector.js"></script>
+</body>
+
+</html>
